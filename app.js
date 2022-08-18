@@ -1,7 +1,7 @@
 var createError = require('http-errors');
 var express = require('express');
 var path = require('path');
-var productHelper=require('./helpers/product-helpers')
+var productHelpers=require('./helpers/product-helpers')
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
@@ -9,7 +9,7 @@ var logger = require('morgan');
 var userRouter = require('./routes/user');
 var adminRouter = require('./routes/admin');
 var hbs=require('express-handlebars');
-var app = express();
+var  app = express();
 var fileUpload=require('express-fileupload')
 var db=require('./config/connection')
 
