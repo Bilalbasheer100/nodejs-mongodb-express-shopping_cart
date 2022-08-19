@@ -1,7 +1,6 @@
 var createError = require('http-errors');
 var express = require('express');
 var path = require('path');
-var productHelpers=require('./helpers/product-helpers')
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
@@ -12,6 +11,7 @@ var hbs=require('express-handlebars');
 var  app = express();
 var fileUpload=require('express-fileupload')
 var db=require('./config/connection')
+var session=require('express-session')
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -24,6 +24,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(fileUpload())
+app.use(session({secret:'key',cookie:{maxAge:600000}}))
 
 db.connect((err)=>{
     if(err)
