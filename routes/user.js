@@ -1,4 +1,5 @@
 var express = require('express');
+const async = require('hbs/lib/async');
 const { response } = require('../app');
 var router = express.Router();
 var productHelpers = require('../helpers/product-helpers');
@@ -60,8 +61,16 @@ router.post('/signup',(req,res)=>{
      req.session.destroy()
      res.redirect('/')
    })
-   router.get('/cart',verifyLogin,(req,res )=>{
+   router.get('/cart',verifyLogin,async(req,res )=>{
+     let products=await userHelpers.getCartProducts(req.session.user._id)
+     console.log(products);
      res.render('user/cart')
+   })
+
+   router.get('/add-to-cart/:id',verifyLogin,(req,res)=>{
+     userHelpers.addToCart(req.params.id,req.session.user._id).then(()=>{
+       res.redirect('/')
+     })
    })
    
 
