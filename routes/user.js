@@ -84,6 +84,10 @@ router.post('/signup',(req,res)=>{
        res.json(response)
      })
    })
+   router.get('/place-order',verifyLogin,async(req,res)=>{
+    let total=await userHelpers.getTotalAmount(req.session.user._id)
+     res.render('user/place-order',{total})
+   })
    
 
 
