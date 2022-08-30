@@ -14,6 +14,7 @@
 
                          <label for="">Mobile</label>
                           <input type="text" class="form-control" id="mobile" name="mobile">
+                          <input type="text"  class="form-control" name="userId" id="userId" value="{{user._id}}" hidden>
                     </div>
                 </div>
                 <div class="col-md-4">
@@ -37,6 +38,19 @@
         </form>
     </div>
 </section>
+<script>
+    $("#checkout-form").submit((e)=>{
+        e.preventDefault()
+      $.ajax({
+          url:'/place-order',
+          method:'post',
+          date:$('#checkout-form').serialize(),
+          success:(response)=>{
+              alert(response)
+          }
+      })
+    })
+</script>
 <style>
     input[type=radio]{
         width: 20px;
