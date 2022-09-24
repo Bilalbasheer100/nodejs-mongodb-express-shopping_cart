@@ -8,7 +8,7 @@ const { rejects } = require('assert');
 const { response } = require('../app');
 module.exports = {
 
-    addProduct: (product, callback) => {
+     addProduct: (product, callback) => {
         console.log(product);
 
 

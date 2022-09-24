@@ -52,7 +52,7 @@
                 quantity:quantity
             },
             method:'post',
-            success(response):=>{
+            success:(response)=>{
                 if(response.removeProduct){
                     alert('product removed from cart')
                     location.reload()
