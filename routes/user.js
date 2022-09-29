@@ -5,7 +5,7 @@ var router = express.Router();
 var productHelpers = require('../helpers/product-helpers');
 const userHelpers=require('../helpers/user-helpers')
 const verifyLogin=(req,res,next)=>{
-  if(req.session.userLoggedIn){
+  if(req.session.user.loggedIn){
     next()
   }else{
     res.redirect('/login')
@@ -107,6 +107,7 @@ router.post('/signup',(req,res)=>{
         res.json({codSuccess:true})
        }else{
          userHelpers.generateRazorpay(orderId,totalPrice).then((response)=>{
+           res.json(response)
 
          })
 

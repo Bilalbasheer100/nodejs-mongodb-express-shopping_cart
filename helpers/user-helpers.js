@@ -146,7 +146,7 @@ module.exports={
              resolve(count)
          })
      },
-     changeProductQuantity:({details})=>{
+     changeProductQuantity:(details)=>{
          details.count=parseInt(details.count)
          details.quantity=parseInt(details.quantity)
          
@@ -243,7 +243,7 @@ module.exports={
              }
 
              db.get().collection(collection.ORDER_COLLECTION).insertOne(orderObj).then((response)=>{
-                 resolve(response.ops[0]._id)
+                 resolve(response.insertedId)
              })
 
          })
