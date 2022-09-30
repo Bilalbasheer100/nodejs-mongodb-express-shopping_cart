@@ -2,7 +2,7 @@ var db = require('../config/connection')
 var collection=require('../config/collection');
 const Razorpay = require('razorpay');
 const bcrypt=require('bcrypt');
-var objectId=require('mongodb').ObjectId 
+var objectId=require('mongodb').ObjectId
 const { resolve } = require('path');
 const { Collection } = require('mongodb');
 const { reject } = require('promise');
@@ -226,24 +226,29 @@ module.exports={
      placeOrder:(order,products,total)=>{
          return new Promise((resolve,reject)=>{
              console.log(order,products,total);
+             
              let status=order['payment-method']==='COD'?'placed':'pending'
              let orderObj={
                  deliveryDetails:{
                      mobile:order.mobile,
                      address:order.address,
                      pincode:order.pincode
+                     
 
                  },
                  
                  userId:objectId(order.userId),
                  paymentMethod:order['payment-method'],
                  products:products,
-                 status:status
+                 totalAmount:total,
+                 status:status,
+                 date:new Date()
 
              }
 
              db.get().collection(collection.ORDER_COLLECTION).insertOne(orderObj).then((response)=>{
                  resolve(response.insertedId)
+                 
              })
 
          })

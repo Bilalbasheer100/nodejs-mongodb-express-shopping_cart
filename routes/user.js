@@ -100,6 +100,7 @@ router.post('/signup',(req,res)=>{
      res.render('user/place-order',{total,user:req.session.user})
    })
    router.post('/place-order',async(req,res)=>{
+     console.log('api call');
      let products=await userHelpers.getCartProductList(req.body.userId)
      let totalPrice=await userHelpers.getTotalAmount(req.body.userId)
      userHelpers.placeOrder(req.body,products,totalPrice).then((orderId)=>{
