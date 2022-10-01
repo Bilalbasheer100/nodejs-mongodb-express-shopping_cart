@@ -122,11 +122,11 @@ router.post('/signup',(req,res)=>{
    })
    router.get('/orders',async(req,res)=>{
      let orders=await userHelpers.getUserOrders(req.session.user._id)
-     res.render('user/orders',{user:req.session.user,orders})
+     res.render('user/order',{user:req.session.user,orders})
    })
    router.get('/view-order-products/:id',async(req,res)=>{
      let products=await userHelpers.getOrderProducts(req.params.id)
-     res.render('/user/view-order-products',{user:req.session.user,products})
+     res.render('user/view-order-products',{user:req.session.user,products})
 
    })
    router.post('/verify-payment',(req,res)=>{
