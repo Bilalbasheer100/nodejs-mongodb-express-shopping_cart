@@ -274,7 +274,7 @@ module.exports={
 
          })
      },
-     getOrderProducts:(userId)=>{
+     getOrderProducts:(orderId)=>{
          return new Promise(async(resolve,reject)=>{
              let orderItems=await db.get().collection(collection.ORDER_COLLECTION).aggregate([
                  {
