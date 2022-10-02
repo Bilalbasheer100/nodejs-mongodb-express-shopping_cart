@@ -76,6 +76,7 @@ router.get('/adminLogin',function(req,res){
     res.redirect("/")
   }
   else{
+    
     res.render("admin/login",{"loginErr":req.session.adminLoginErr})
     req.session.adminLoginErr=false
   }
@@ -83,7 +84,7 @@ router.get('/adminLogin',function(req,res){
 })
 
 router.get('/adminSignup',(req,res)=>{
-  res.render("admin/signup")
+  res.render('admin/signup')
 })
 router.post('/adminSignup',(req,res)=>{
   adminHelpers.doSignup(req.body).then((response)=>{
