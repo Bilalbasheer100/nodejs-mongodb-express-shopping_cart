@@ -103,22 +103,22 @@ router.post('/adminLogin',(req,res)=>{
 // router.get('/adminSignup',(req,res)=>{
 //   res.render('admin/signup')
 // })
-router.get('/adminSignup',(req,res)=>{
-  res.render('admin/signup')
-})
+// router.get('/adminSignup',(req,res)=>{
+//   res.render('admin/signup')
+// })
 
-router.post('/adminSignup',(req,res)=>{
-  console.log(req.body);
-  adminHelpers.doSignup(req.body).then((response)=>{
-    console.log(response);
-    console.log('hii');
+// router.post('/adminSignup',(req,res)=>{
+//   console.log(req.body);
+//   adminHelpers.doSignup(req.body).then((response)=>{
+//     console.log(response);
+//     console.log('hii');
     
-    req.session.admin=response
-    req.session.admin.loggedIn=true
-    res.redirect('/admin/')
+//     req.session.admin=response
+//     req.session.admin.loggedIn=true
+//     res.redirect('/admin/')
 
-  })
-})
+//   })
+// })
 
 
 
