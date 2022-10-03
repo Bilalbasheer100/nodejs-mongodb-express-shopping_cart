@@ -83,21 +83,6 @@ router.get('/adminLogin',function(req,res){
  
 })
 
-router.get('/adminSignup',(req,res)=>{
-  res.render('admin/signup')
-})
-router.post('/adminSignup',(req,res)=>{
-  adminHelpers.doSignup(req.body).then((response)=>{
-    console.log(response);
-    
-    req.session.admin=response
-    req.session.admin.loggedIn=true
-    res.redirect('/admin/adminLogin')
-
-  })
-})
-
-
 router.post('/adminLogin',(req,res)=>{
   adminHelpers.doLogin(req.body).then((response)=>{
     if(response.status){
@@ -113,6 +98,29 @@ router.post('/adminLogin',(req,res)=>{
     }
   })
 })
+
+
+// router.get('/adminSignup',(req,res)=>{
+//   res.render('admin/signup')
+// })
+router.get('/adminSignup',(req,res)=>{
+  res.render('admin/signup')
+})
+
+router.post('/adminSignup',(req,res)=>{
+  console.log(req.body);
+  adminHelpers.doSignup(req.body).then((response)=>{
+    console.log(response);
+    console.log('hii');
+    
+    req.session.admin=response
+    req.session.admin.loggedIn=true
+    res.redirect('/admin/')
+
+  })
+})
+
+
 
 
 

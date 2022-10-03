@@ -13,8 +13,10 @@ module.exports={
         return new Promise(async(resolve,reject)=>{
            
                 adminData.Password=await bcrypt.hash(adminData.Password,10)
-                db.get().collection(collection.ADMIN_COLLECTION).insertOne(ADMINData).then((data)=>{
+                db.get().collection(collection.ADMIN_COLLECTION).insertOne(adminData).then((data)=>{
+                    
                     resolve(data.insertedId)
+                    
     
                 })
                  
@@ -36,7 +38,7 @@ module.exports={
                         console.log("Login Success");
                         response.admin=admin;
                         response.status=true;
-                        console.log("Responce contains: "+response);
+                        console.log("Response contains: "+response);
                         resolve(response)
                     }else{
                         console.log("Login Failed");

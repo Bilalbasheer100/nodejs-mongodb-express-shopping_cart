@@ -1,23 +1,35 @@
 <header>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="/">Shopping Cart</a>
+    <nav class="navbar navbar-expand-lg navbar-light bg-warning">
+        <script src="https://cdn.lordicon.com/pzdvqjsp.js"></script>
+<lord-icon
+    src="https://cdn.lordicon.com/ggihhudh.json"
+    trigger="hover"
+    colors="primary:#121331,secondary:#646e78,tertiary:#30c9e8"
+    style="width:50px;height:50px">
+</lord-icon>
+        <a class="navbar-brand" href="/" style="font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;">B-Cart</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
+        
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
+
                 <li class="nav-item active">
                     <a class="nav-link" href="/ ">Products <span class="sr-only">(current)</span></a>
                 </li>
+                {{#if user}}
+              
                 <li class="nav-item">
-                    {{#if user}}
+                    
                     <a class="nav-link" href="/cart">Cart<span class="badge badge-success" id="cart-count">{{cartCount}}</span></a>
                     {{else}}
                     <a class="nav-link" href="/login">Cart</a>
-                    {{/if}}
+                   
                 </li>
+                 {{/if}}
                 {{#if user}}
                 <li class="nav-item">
                     <a class="nav-link" href="/orders">Orders</a>
@@ -30,8 +42,26 @@
                     data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 
                     {{#if user}}
+
+                    <script src="https://cdn.lordicon.com/pzdvqjsp.js"></script>
+    <span>
+<lord-icon
+    src="https://cdn.lordicon.com/ajkxzzfb.json"
+    trigger="loop"
+    colors="primary:#ffc738,secondary:#4bb3fd"
+    style="width:30px;height:30px">
+</lord-icon></span>
                     {{user.Name}}
                     {{else}}
+
+                    <script src="https://cdn.lordicon.com/pzdvqjsp.js"></script>
+    <span>
+<lord-icon
+    src="https://cdn.lordicon.com/ajkxzzfb.json"
+    trigger="hover"
+    colors="primary:#ffc738,secondary:#4bb3fd"
+    style="width:30px;height:30px">
+</lord-icon></span>
                      Account
 
                     {{/if}}
