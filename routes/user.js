@@ -66,8 +66,8 @@ router.post('/signup',(req,res)=>{
 
    })
    router.get('/logout',(req,res)=>{
-     req.session.user=null
-     req.session.userLoggedIn=false
+    req.session.user=null
+     //req.session.user.loggedIn=false
      res.redirect('/')
    })
    router.get('/cart',verifyLogin,async(req,res)=>{

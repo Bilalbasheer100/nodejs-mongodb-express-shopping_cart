@@ -1,6 +1,6 @@
 <section>
   
-     <div class="icon" style="margin-left:560px ;">
+     <div class="col-9 m-auto" style="margin-left:560px ;">
             <script src="https://cdn.lordicon.com/pzdvqjsp.js"></script>
 <lord-icon
     src="https://cdn.lordicon.com/myroguwc.json"
@@ -20,7 +20,7 @@
     style="width:100px;height:100px">
 </lord-icon>
         </div>
-        <div class="" style="margin-left: 630px;">
+        <div class="col-6 m-auto" style="margin-left: 630px;">
            <h2>PRODUCTS</h2>
   </div>
    
@@ -31,10 +31,10 @@
             <a href="/admin/add-product" class="btn btn-success ml-auto">Add product</a>
         </div>
         <div class="t" style= "margin-top: 15px;"">
-        <table class="table" id="productsTable">
+        <table class="table table-dark" id="productsTable">
   <thead>
     <tr>
-      <th scope="col">No</th>
+      {{!-- <th scope="col">No</th> --}}
       <th scope="col">Name</th>
       <th scope="col">Category</th>
       <th scope="col">Description</th>
@@ -45,7 +45,7 @@
   <tbody>
       {{#each products}}
     <tr>
-      <th scope="row">1</th>
+      {{!-- <th scope="row">1</th> --}}
       <td>{{this.Name}}</td>
       <td>{{this.Category}}</td>
       <td>{{this.Description}}</td>
