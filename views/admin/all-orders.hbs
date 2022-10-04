@@ -1,5 +1,5 @@
 <section style="margin-top: px;">
-    <div class="col-6 m-auto" style="margin-left :610px;">
+    <div class="col-6 col-md-2 m-auto" style="margin-left :610px;">
 <script src="https://cdn.lordicon.com/pzdvqjsp.js"></script>
 <lord-icon
     src="https://cdn.lordicon.com/pqxdilfs.json"
@@ -8,11 +8,11 @@
     style="width:150px;height:150px">
 </lord-icon>
     </div>
-    <div class="col-6 m-auto" style="margin-left: 585px;">
+    <div class="col-6 col-md-2 m-auto" style="margin-left: 585px;">
         <h2>ALL ORDERS</h2>
     </div>
     <div class="container fadeInDown third">
-        <table class="table table-dark">
+        <table class="table table-dark" id="adminTable">
             <thead class="tableHead">
                 <tr>
                     <th scope="col">Date</th>
@@ -49,3 +49,8 @@
 
     </div>
 </section>
+<script>
+  $(document).ready( function () {
+    $('#adminTable').DataTable();
+} );
+</script>
